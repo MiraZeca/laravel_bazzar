@@ -49,6 +49,8 @@
         @include('navbar1')
     @elseif (Route::currentRouteName() == 'users.index')
         @include('navbar1')
+     @elseif (Route::currentRouteName() == 'contact.info')
+        @include('navbar1')
     @elseif (Route::currentRouteName() == 'user')
         @include('navbar1')
     @elseif (Route::currentRouteName() == 'product.create')
