@@ -21,12 +21,12 @@
                     </div>
                 </li>
                 <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="{{ route('exchange') }}" class="nav-link">Exchange</a></li>
                 <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                 <li class="nav-item cta cta-colored"><a href="#" class="nav-link"><span
                             class="icon-shopping_cart">[0]</span></a></li>
                 <li class="nav-item"><a href="{{ route('index') }}" class="nav-link">Logout</a></li>
+                <li class="nav-item"><a href="https://mirazeca.com" class="nav-link">Back to CV</a></li>
             </ul>
         </div>
     </div>
