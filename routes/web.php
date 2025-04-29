@@ -64,7 +64,6 @@ Route::get('/admin/warehouse/{product_id}/edit', [WarehouseController::class, 'e
 Route::put('/admin/warehouse/{product_id}', [WarehouseController::class, 'update'])->name('warehouse.update');
 Route::delete('/admin/warehouse/{product_id}', [WarehouseController::class, 'destroy'])->name('warehouse.destroy');
 
-// Route::post('/like/{product_id}', [LikeController::class, 'store'])->middleware('auth')->name('like');
 Route::post('/product/{id}/like', [LikeController::class, 'toggle'])->name('product.like');
 Route::get('/my-likes', [LikeController::class, 'myLikes'])->name('likes.my')->middleware('auth');
 
