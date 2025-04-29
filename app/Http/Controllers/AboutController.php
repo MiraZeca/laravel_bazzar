@@ -7,11 +7,21 @@ use App\Models\Product;
 
 class AboutController extends Controller
 {
-    public function index()
-    {
-        $allProducts = Product::all();
-        $categories = Category::all(); // Dohvatanje svih kategorija iz baze
+    public function index($category = null)
 
-        return view('about', compact('allProducts', 'categories')); 
+    {
+        $categories = Category::all();
+        if ($category) {
+            $selectedCategory = Category::where('name', $category)->first();
+            if ($selectedCategory) {
+                 $allProducts = Product::where('category_id', $selectedCategory->id)->get();
+            } else {
+                $allProducts = collect(); 
+            }
+        } else {
+            $allProducts = Product::all();
+        }
+
+        return view('about', compact('allProducts', 'categories'));
     }
 }

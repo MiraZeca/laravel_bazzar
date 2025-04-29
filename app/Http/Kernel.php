@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         // Dodaj svoj custom middleware ovde
         'check.role' => \App\Http\Middleware\CheckRole::class,
+        'is_admin' => \App\Http\Middleware\IsAdmin::class,
     ];
 }

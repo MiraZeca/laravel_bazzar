@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/gallery-grid.css') }}">
-
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
     <title>@yield('title')</title>
 </head>
@@ -45,15 +45,27 @@
 
     @if (Route::currentRouteName() == 'home')
         @include('navbar')
-    @elseif (Route::currentRouteName() == 'admin')
-        @include('navbar1')
-    @elseif (Route::currentRouteName() == 'users.index')
-        @include('navbar1')
-    @elseif (Route::currentRouteName() == 'user')
-        @include('navbar1')
-    @elseif (Route::currentRouteName() == 'product.create')
-        @include('navbar1')
-    @elseif (Route::currentRouteName() == 'categories.create')
+    @elseif (in_array(Route::currentRouteName(),['login', 'register','about','contact']))
+        @include('navbar3')
+    @elseif (in_array(Route::currentRouteName(), [
+            'admin',
+            'users.index',
+            'users.edit',
+            'categories.create',
+            'product.create',
+            'product.edit',
+            'adminOrders',
+            'admin.orders',
+            'warehouse.index',
+            'warehouse.create',
+            'warehouse.edit',
+            'contact.info'
+        ]))
+        @include('navbar2')
+    @elseif (in_array(Route::currentRouteName(), [
+            'user',
+            'user.orders'
+        ]))
         @include('navbar1')
     @else
         @include('navbar')
@@ -88,15 +100,17 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <script>
         $(document).ready(function() {
-        setTimeout(function() {
-            $('#successAlert').fadeOut('slow');
-            $('#deleteAlert').fadeOut('slow');
-            $('#createAlert').fadeOut('slow');
-        }, 3000);
-    });
+            setTimeout(function() {
+                $('#successAlert').fadeOut('slow');
+                $('#deleteAlert').fadeOut('slow');
+                $('#createAlert').fadeOut('slow');
+            }, 3000);
+        });
     </script>
 
 

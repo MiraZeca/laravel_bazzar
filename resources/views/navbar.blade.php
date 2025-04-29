@@ -13,28 +13,23 @@
                 <li class="nav-item active"><a href="{{ route('index') }}" class="nav-link">Home</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Shop</a>
+                        aria-haspopup="true" aria-expanded="false">Community</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="#">Shop</a>
-                        <a class="dropdown-item" href="#">Wishlist</a>
+                        <a href="#blog" class="dropdown-item">Blog</a>
+                        <a href="{{ route('about') }}" class="dropdown-item">About</a>
                         <a class="dropdown-item" href="#">Single Product</a>
-                        <a class="dropdown-item" href="#">Cart</a>
-                        <a class="dropdown-item" href="#">Checkout</a>
+                        <a href="{{ route('exchange') }}" class="dropdown-item">Exchange</a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="{{ route('exchange') }}" class="nav-link">Exchange</a></li>
                 <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-                <li class="nav-item cta cta-colored"><a href="#" class="nav-link"><span
-                            class="icon-shopping_cart ">[0]</span></a></li>
                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                <li class="nav-item"><a href="https://mirazeca.com" class="nav-link">Back to CV</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<!-- END nav -->
+
 <section class="ftco-section ftco-counter ftco" id="section-counter">
     <div class="container-fluid bg-primary">
         <div class="row justify-content-center py-5">

@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
     public function index()
     {
-        $allProducts = Product::with('category')->get(); 
-        return view('login.user', compact('allProducts'));
-    } 
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'You must be logged in.');
+        }
+
+        $allProducts = Product::with(['category', 'warehouse'])->get();
+        $userComments = Comment::where('user_id', Auth::id())->latest()->get();
+
+        return view('login.user', compact('allProducts', 'userComments'));
+    }
 
     public function showLoginForm()
     {
@@ -26,24 +32,21 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-    
+
             if ($user->role->name === 'admin') {
                 return redirect()->route('admin')
-                    ->with('role', 'admin') 
+                    ->with('role', 'admin')
                     ->with('success', 'Successful Login!');
             } else {
-                
                 return redirect()->route('user')
-                    ->with('role', 'user') 
+                    ->with('role', 'user')
                     ->with('success', 'Successful Login!');
             }
-            
         }
 
         return redirect()->back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
- 
     }
 
     public function logout(Request $request)

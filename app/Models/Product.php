@@ -23,4 +23,24 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function warehouse()
+    {
+        return $this->hasOne(Warehouse::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function isLikedBy(User $user)
+    {
+        return $this->likes()->where('user_id', $user->id)->exists();
+    }
+
+    public function pendingOrders()
+{
+    return $this->hasMany(Order::class)->where('status', 'pending');
+}
 }

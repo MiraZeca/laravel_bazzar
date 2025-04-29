@@ -30,17 +30,18 @@ body {
     font-size: 18px;
 }
 
-.tz-gallery {
+/* .tz-gallery {
     padding: 40px;
-}
+} */
 
 .tz-gallery .lightbox img {
     width: 100%; /* Puna širina kolone */
-    height: 200px; /* Postavi fiksnu visinu */
+    height: 150px; /* Postavi fiksnu visinu */
     object-fit: cover; /* Omogućava proporcionalno smanjenje i centriranje */
     object-position: center; /* Centriraj sliku */
     border: 5px solid #82ae46;
-    margin-bottom: 30px;
+    display: block;
+    margin: 15px auto;
     transition: 0.2s ease-in-out;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }

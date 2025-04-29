@@ -1,8 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{ route('index') }}">Vegefoods</a>
-        <button class="navbar-toggler btnhover" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <div class="navbar-user ml-auto">
+            <p class="mt-3">
+                @if (Auth::user()->is_admin)
+                
+                    <img src="{{ asset('images/default_user1.png') }}" alt="Admin Profile" class="rounded-circle"
+                        style="width: 40px; height: 40px; object-fit: cover;">
+                @else
+                    <img src="{{ asset('storage/' . Auth::user()->profile_image ?? 'images/default_user1.png') }}"
+                        alt="User Profile" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                @endif
+            </p>
+
+        </div>
+        <button class="navbar-toggler btnhover" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
@@ -11,27 +24,24 @@
                 <li class="nav-item active"><a href="{{ route('index') }}" class="nav-link">Home</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Shop</a>
+                        aria-haspopup="true" aria-expanded="false">Community</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="#">Shop</a>
-                        <a class="dropdown-item" href="#">Wishlist</a>
+                        <a href="{{ route('index') }}" class="dropdown-item">Blog</a>
+                        <a href="{{ route('about') }}" class="dropdown-item">About</a>
                         <a class="dropdown-item" href="#">Single Product</a>
-                        <a class="dropdown-item" href="#">Cart</a>
-                        <a class="dropdown-item" href="#">Checkout</a>
+                        <a href="{{ route('exchange') }}" class="dropdown-item">Exchange</a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="{{ route('exchange') }}" class="nav-link">Exchange</a></li>
                 <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-                <li class="nav-item cta cta-colored"><a href="#" class="nav-link"><span
-                            class="icon-shopping_cart">[0]</span></a></li>
+                <li class="nav-item cta cta-colored"><a href="{{ route('user.orders') }}" class="nav-link"><span
+                            class="icon-shopping_cart"></span> My orders</a></li>
                 <li class="nav-item"><a href="{{ route('index') }}" class="nav-link">Logout</a></li>
+                <li class="nav-item"><a href="https://mirazeca.com" class="nav-link">Back to CV</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<!-- END nav -->
+
 <section class="ftco-section ftco-counter ftco" id="section-counter">
     <div class="container-fluid bg-primary">
         <div class="row justify-content-center py-5">
