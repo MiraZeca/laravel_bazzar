@@ -33,15 +33,6 @@ class LikeController extends Controller
         }
     }
 
-    // public function myLikes()
-    // {
-    //     $user = Auth::user();
-    //     // Učitavamo lajkovane proizvode korisnika, zajedno sa proizvodima
-    //     $likedProducts = $user->likes()->with('product')->get()->pluck('product');
-
-    //     return view('likes.my', compact('likedProducts'));
-    // }
-
     public function myLikes()
     {
         $userId = Auth::id(); // Preuzimanje ID-a prijavljenog korisnika
