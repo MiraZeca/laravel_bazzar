@@ -135,7 +135,6 @@
     </section>
 
     <script>
-        // Dodela događaja na dugme za otvaranje forme
         document.getElementById('uploadProfileImageBtn').addEventListener('click', function() {
             var form = document.getElementById('profileImageForm');
             if (form.style.display === 'none' || form.style.display === '') {
