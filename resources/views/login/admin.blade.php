@@ -53,55 +53,9 @@
                     <a href="{{ route('contact.info') }}" class="btn btn-primary m-2 p-2">Contact - Info</a>
                     <a href="{{ route('warehouse.index') }}" class="btn btn-primary m-2 p-2">Warehouse</a>
                     <a href="{{ route('admin.orders') }}" class="btn btn-primary m-2 p-2">Orders</a>
+                    <a href="{{ route('subscribes') }}" class="btn btn-primary m-2 p-2">Subscribers</a>
                 </div>
             </div>
-    
-            {{-- <table class="table table-striped table-hover text-center p-3">
-                <thead class="table-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Images</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Discount Price</th>
-                        <th>Actions</th>
-                     
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($allProducts as $product)
-                        <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>
-                                @if ($product->image)
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
-                                        width="100" height="100">
-                                @else
-                                    <p>No image available</p>
-                                @endif
-                            </td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->category->name }}</td>
-                            <td>{{ $product->price }}</td>
-                            <td>{{ $product->discount_price }}</td>
-                            <td>
-                                <!-- Edit Button -->
-                                <button class="btn btn-warning btnedit">
-                                    <a href="{{ route('product.edit', $product->id) }}">Edit</a>
-                                </button>
-
-                                <!-- Delete Button -->
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
-                                    onclick="setDeleteAction('{{ route('product.destroy', $product->id) }}')">
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table> --}}
 
             <div class="table-responsive">
                 <table class="table table-striped table-hover text-center p-3">
@@ -180,28 +134,28 @@
         </div>
 
         <script>
-            // Držanje URL-a za DELETE formu koja treba biti submitovana
+          
             let deleteUrl = '';
 
-            // Setovanje URL-a za brisanje
+  
             function setDeleteAction(url) {
                 deleteUrl = url;
             }
 
-            // Funkcija za slanje DELETE zahteva
+           
             function submitDeleteForm() {
                 if (deleteUrl) {
                     const form = document.createElement('form');
                     form.method = 'POST';
                     form.action = deleteUrl;
 
-                    // Dodavanje CSRF tokena
+                  
                     const csrfToken = document.createElement('input');
                     csrfToken.type = 'hidden';
                     csrfToken.name = '_token';
                     csrfToken.value = "{{ csrf_token() }}";
 
-                    // Laravel koristi '_method' za emulaciju DELETE metode
+                   
                     const methodField = document.createElement('input');
                     methodField.type = 'hidden';
                     methodField.name = '_method';
@@ -216,10 +170,10 @@
                 }
             }
 
-        // Dodela događaja na dugme za otvaranje forme
+       
         document.getElementById('uploadProfileImageBtn').addEventListener('click', function() {
             var form = document.getElementById('profileImageForm');
-            // Proveravamo da li je forma sakrivena ili nije, pa je prikazujemo ili sakrivamo
+            
             if (form.style.display === 'none' || form.style.display === '') {
                 form.style.display = 'block';
             } else {
@@ -229,7 +183,7 @@
 
         $(document).ready(function() {
             $('#uploadProfileImageBtn').click(function() {
-                $('#profileImageForm').slideToggle(); // Animacija klizanja forme
+                $('#profileImageForm').slideToggle();
             });
         });
         </script>
