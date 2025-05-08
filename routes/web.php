@@ -92,7 +92,7 @@ Route::get('/admin/orders/{id}/reject', [OrderController::class, 'reject'])
     ->name('admin.reject');
 
 Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
-
+Route::get('/subscribes', [SubscriptionController::class, 'index'])->name('subscribes'); 
 
 Route::get('/blog', [CommentController::class, 'index'])->name('blog.index');
 Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');
